@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Jack.dex</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+            header {
+                display: flex;
+                flex-direction: row;
+                font-family: "Google Sans", sans-serif;
+            }
+            body {
+                font-family: "Google Sans", sans-serif;
+                
+            }
+            section {
+                padding: 0;
+                margin: 8px;
+                min-height: 400px;
+                max-height: 400px;
+                background-color: gray;
+            }
+            p {
+                color:aliceblue;
+            }
+
+            ol {
+                display: flex;
+                flex-direction: row;
+            }
+            
+            .grad {
+                background-image: linear-gradient(to left, red, yellow); 
+            }
+            			#canvas {
+				display: block;
+				-moz-box-shadow: inset 0 0 100px #000;
+				-webkit-box-shadow: inset 0 0 100px #000;
+				box-shadow: inset 0 0 100px #000;
+				z-index: 2;
+				content: "";
+			}
+        </style>
+                <script src="tvstatic.js"></script>
+        <script>
+		window.requestAnimFrame = window.requestAnimationFrame       ||
+					  window.webkitRequestAnimationFrame ||
+					  window.mozRequestAnimationFrame    ||
+					  window.oRequestAnimationFrame      ||
+					  window.msRequestAnimationFrame     ||
+					  function(callback){
+						window.setTimeout(callback, 1000 / 60);
+					  };
+
+		var canvas, ctx;
+		window.addEventListener('load', load, false);
+		window.addEventListener('resize', resize, false);
+		function load() {
+			canvas = document.getElementById('canvas');
+			ctx = canvas.getContext('2d');
+			ctx.fillStyle = '#000';
+			resize();
+			requestAnimFrame(render);
+		}
+
+		function resize() {
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+		}
+
+		function render() {
+			requestAnimFrame(render);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			tvstatic(canvas, ctx, 2);
+		}
+		</script>
+    </head>
+    <body>
+    <header>
+        <p>Copyright of no one.</p> 
+        <ol>
+            <a href="devlog.html">Devlog </a>
+            
+            <a href="index.html">Home </a>
+        </ol>
+    </header>
+        <section class="grad">
+            <h1>Jack.dex</h1>
+            <p>1</p>
+        </section>
+        <section>
+            <h1>We make the best js libraries</h1>
+        </section>
+        
+        <canvas id="canvas"></canvas>
+
+    </body>
+</html>
